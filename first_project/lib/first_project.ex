@@ -1,18 +1,12 @@
 defmodule FirstProject do
-  @moduledoc """
-  Documentation for `FirstProject`.
-  """
+  use Application
+  def start(_type, _args) do
+    #code
+    IO.puts FirstProject.hello()
+    Supervisor.start_link([], strategy: :one_for_one)
+  end
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> FirstProject.hello()
-      :world
-
-  """
-  def hello do
+  def hello() do
     :world
   end
 end
